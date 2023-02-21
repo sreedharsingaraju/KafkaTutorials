@@ -62,6 +62,11 @@ public class KafkaProducerApplication {
 		return kfkProducer.send(prodRecord,sendNotification);
 
 	}
+
+	public void Close()
+	{
+		kfkProducer.close();
+	}
 	public void SendMessage(String key, Object value)
 								throws ExecutionException, InterruptedException {
 
@@ -96,6 +101,9 @@ public class KafkaProducerApplication {
 		{
 			sleep(1000);
 		}
+
+		producer.Close();
+
 	}
 
 
