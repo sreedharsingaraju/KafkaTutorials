@@ -16,7 +16,9 @@ import static java.lang.Thread.*;
 
 public class KafkaProducerApplication {
 
-	static  final  String TOPIC_NAME="kafka-topic";
+	//static  final  String TOPIC_NAME="kafka-topic";
+	static final String TOPIC_NAME="replicatedtopic1";
+
 
 	KafkaProducer<String,Object> kfkProducer;
 
@@ -29,6 +31,8 @@ public class KafkaProducerApplication {
 	public static Map<String,Object> Configure()
 	{
 
+		System.out.println("Configuring Kafka Producer");
+
 		Map<String,Object> kafkaconfig=new HashMap<>();
 
 		kafkaconfig.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
@@ -36,6 +40,14 @@ public class KafkaProducerApplication {
 		kafkaconfig.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
 		kafkaconfig.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+
+		kafkaconfig.put(ProducerConfig.ACKS_CONFIG,"all");
+
+		kafkaconfig.put(ProducerConfig.RETRIES_CONFIG,10);
+		kafkaconfig.put(ProducerConfig.RETRY_BACKOFF_MS_CONFIG,3000);
+
+
+
 
 		return kafkaconfig;
 	}
