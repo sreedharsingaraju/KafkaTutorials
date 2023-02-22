@@ -28,7 +28,10 @@ public class MyCustomConsumer {
                 TopicPartition topicPartition4 = new TopicPartition(TOPIC_NAME, 3);
 
                 Map<TopicPartition, OffsetAndMetadata> committed = kafkaConsumer
-                        .committed(new HashSet<>(Arrays.asList(topicPartition1,topicPartition2,topicPartition3,topicPartition4)));
+                        .committed(new HashSet<>(Arrays.asList(topicPartition1,
+                                topicPartition2,
+                                topicPartition3,
+                                topicPartition4)));
 
                 OffsetAndMetadata offsetAndMetadata1 = committed.get(topicPartition1);
                 OffsetAndMetadata offsetAndMetadata2 = committed.get(topicPartition2);
@@ -37,15 +40,13 @@ public class MyCustomConsumer {
 
 
 
-                //long position = kafkaConsumer.position(topicPartition1);
-
-                System.out.printf("Partition 0 : Committed: %s\n\n", offsetAndMetadata1 == null ? null : offsetAndMetadata1
+                System.out.printf("Partition 0 : Committed: %s \n\n", offsetAndMetadata1 == null ? null : offsetAndMetadata1
                         .offset() );
-                System.out.printf("Partition 2 : Committed: %s\n\n", offsetAndMetadata2 == null ? null : offsetAndMetadata2
+                System.out.printf("Partition 1 : Committed: %s \n\n", offsetAndMetadata2 == null ? null : offsetAndMetadata2
                         .offset() );
-                System.out.printf("Partition 3 : Committed: %s\n\n", offsetAndMetadata3 == null ? null : offsetAndMetadata3
+                System.out.printf("Partition 2 : Committed: %s \n\n", offsetAndMetadata3 == null ? null : offsetAndMetadata3
                         .offset() );
-                System.out.printf("Partition 4 : Committed: %s\n\n", offsetAndMetadata4 == null ? null : offsetAndMetadata4
+                System.out.printf("Partition 3 : Committed: %s \n\n", offsetAndMetadata4 == null ? null : offsetAndMetadata4
                         .offset() );
         }
         public  void PollKafka()
@@ -54,18 +55,16 @@ public class MyCustomConsumer {
                 kafkaConsumer.subscribe(List.of(TOPIC_NAME));
                 Duration time=Duration.of(100, ChronoUnit.MILLIS);
 
+                PrintCommitedOffsets();
+
                 try {
 
-
                         while(true) {
-                                System.out.println("Waiting for messages from Queue");
-                                PrintCommitedOffsets();
+
                                 ConsumerRecords<String, Object> consumedrecords = kafkaConsumer.poll(time);
 
                                 if(consumedrecords.count()==0)
                                 {
-                                        System.out.println("No records fetched in this poll");
-
                                         continue;
                                 }
 
@@ -75,10 +74,7 @@ public class MyCustomConsumer {
                                                 " Offset = "+record.offset())
                                 );
 
-
-                                // Thread.sleep(10000);
-
-
+                               // Thread.sleep(10000);
                         }
                 }
                 catch(Exception e)
