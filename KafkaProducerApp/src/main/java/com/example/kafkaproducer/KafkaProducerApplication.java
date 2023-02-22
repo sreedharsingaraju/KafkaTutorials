@@ -9,6 +9,7 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -16,88 +17,121 @@ import static java.lang.Thread.*;
 
 public class KafkaProducerApplication {
 
-	static  final  String TOPIC_NAME="kafka-topic";
+	//static  final  String TOPIC_NAME="kafka-topic";
+	static final String TOPIC_NAME = "replicatedtopic1";
 
-	KafkaProducer<String,Object> kfkProducer;
 
-	KafkaProducerApplication(Map<String,Object> prodConfig)
-	{
+	KafkaProducer<String, Object> kfkProducer;
 
-		kfkProducer=new KafkaProducer<String, Object>(prodConfig);
+	KafkaProducerApplication(Map<String, Object> prodConfig) {
+
+		kfkProducer = new KafkaProducer<String, Object>(prodConfig);
 
 	}
-	public static Map<String,Object> Configure()
-	{
 
-		Map<String,Object> kafkaconfig=new HashMap<>();
+	public static Map<String, Object> Configure() {
 
-		kafkaconfig.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		System.out.println("Configuring Kafka Producer");
+
+		Map<String, Object> kafkaconfig = new HashMap<>();
+
+		kafkaconfig.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");//, localhost:9093, localhost:9094");
 
 		kafkaconfig.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
 		kafkaconfig.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
+		kafkaconfig.put(ProducerConfig.ACKS_CONFIG, "all");
+
+		kafkaconfig.put(ProducerConfig.RETRIES_CONFIG, 5);
+
+		kafkaconfig.put(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, 15000);
+
+
 		return kafkaconfig;
 	}
 
-	Callback sendNotification=(RecordMetadata sendStatus, Exception ex)-> {
+	Callback sendNotification = (RecordMetadata sendStatus, Exception ex) -> {
 
 		System.out.println("Send Async notification came");
-		if(ex!=null){
+		if (ex != null) {
 
-			System.out.println("Exception Occurred : "+ex.getMessage());
-		}
-		else {
-			System.out.println("Offset : "+ sendStatus.offset()
-					+"\n Partition : "+sendStatus.partition()
-					+"\n Topic : "+sendStatus.topic());
+			System.out.println("Exception Occurred : " + ex.getMessage());
+		} else {
+			System.out.println("Offset : " + sendStatus.offset()
+					+ "\n Partition : " + sendStatus.partition()
+					+ "\n Topic : " + sendStatus.topic());
 		}
 
 	};
-	public Future<RecordMetadata> SendAsyncMessage(String key, String value)
-	{
-		ProducerRecord<String, Object> prodRecord=new ProducerRecord<>(TOPIC_NAME,key,
+
+	public Future<RecordMetadata> SendAsyncMessage(String key, String value) {
+		ProducerRecord<String, Object> prodRecord = new ProducerRecord<>(TOPIC_NAME, key,
 				value);
 
-		return kfkProducer.send(prodRecord,sendNotification);
+		return kfkProducer.send(prodRecord, sendNotification);
 
 	}
+
+	public void Close() {
+		kfkProducer.close();
+	}
+
 	public void SendMessage(String key, Object value)
-								throws ExecutionException, InterruptedException {
+			throws ExecutionException, InterruptedException {
 
-		ProducerRecord<String, Object> prodRecord=new ProducerRecord<>(TOPIC_NAME,key,
+		ProducerRecord<String, Object> prodRecord = new ProducerRecord<>(TOPIC_NAME, key,
 				value);
 
-		RecordMetadata sendStatus=kfkProducer.send(prodRecord).get();
+		RecordMetadata sendStatus = kfkProducer.send(prodRecord).get();
 
 
-		System.out.println("Offset : "+ sendStatus.offset()
-				+"\n Partition : "+sendStatus.partition()
-				+"\n Topic : "+sendStatus.topic());
+		System.out.println("Offset : " + sendStatus.offset()
+				+ "\n Partition : " + sendStatus.partition()
+				+ "\n Topic : " + sendStatus.topic());
 	}
-	public static void main(String [] args) throws InterruptedException {
+
+	public static void main(String[] args) throws InterruptedException {
 
 		KafkaProducerApplication producer = new KafkaProducerApplication(Configure());
 
-		try {
-			producer.SendMessage("JavaProg", "String sent from Java Prog Sync");
-		}
-		catch (ExecutionException ex) {
-			System.out.println("Exception occurred during sending "+ex.getMessage());
+		Scanner sc = new Scanner(System.in);
 
-		} catch (InterruptedException e) {
-			System.out.println("Exception occurred during sending "+e.getMessage());
-		}
+		String keyFromUser = null, valFromUser = null;
 
-		//Async way of sending
-		Future<RecordMetadata> isComplete=producer.SendAsyncMessage("JavaProgAsync",
-				                                      "Message Sent in an Async way from a Java Prog");
-		while(!isComplete.isDone())
-		{
-			sleep(1000);
+
+		while(true) {
+			System.out.println("Enter Key: ");
+			keyFromUser = sc.nextLine();
+			System.out.println("Enter Value: ");
+			valFromUser = sc.nextLine();
+
+			System.out.println("\n key is " + keyFromUser + " and value is " + valFromUser);
+
+			if(keyFromUser.equalsIgnoreCase("exit"))
+			{
+				break;
+			}
+
+			try {
+				producer.SendMessage(keyFromUser,valFromUser);
+			} catch (ExecutionException ex) {
+				System.out.println("Exception occurred during sending " + ex.getMessage());
+
+			} catch (InterruptedException e) {
+				System.out.println("Exception occurred during sending " + e.getMessage());
+			}
+
+			//Async way of sending
+			//Future<RecordMetadata> isComplete = producer.SendAsyncMessage("JavaProgAsync",
+			//		"Message Sent in an Async way from a Java Prog");
+			//while (!isComplete.isDone()) {
+			//	sleep(1000);
+			//}
 		}
+		producer.Close();
 	}
-
-
 }
+
+
 

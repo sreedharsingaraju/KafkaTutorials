@@ -9,7 +9,6 @@ import java.util.Map;
 
 public class KafkaConsumerAppApplication2 {
 
-
 	static Map<String,Object> Configure()
 	{
 		Map<String,Object> configuration=new HashMap<>();

@@ -18,6 +18,7 @@ public class KafkaConsumerAppApplication1 {
 		configuration.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class.getName());
 		configuration.put(ConsumerConfig.GROUP_ID_CONFIG,"Consumer.3");
 		//configuration.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
+
 		return  configuration;
 	}
 	public static void main(String[] args) {
