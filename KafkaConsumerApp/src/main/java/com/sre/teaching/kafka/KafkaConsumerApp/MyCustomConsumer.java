@@ -1,4 +1,5 @@
 package com.sre.teaching.kafka.KafkaConsumerApp;
+import org.apache.kafka.clients.consumer.CommitFailedException;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
@@ -51,14 +52,13 @@ public class MyCustomConsumer {
         }
         public  void PollKafka()
         {
-
                 kafkaConsumer.subscribe(List.of(TOPIC_NAME));
                 Duration time=Duration.of(100, ChronoUnit.MILLIS);
 
                 PrintCommitedOffsets();
-
                 try {
 
+                        //intentionally kept infite loop as this is Kafka messages listener for its entire life time
                         while(true) {
 
                                 ConsumerRecords<String, Object> consumedrecords = kafkaConsumer.poll(time);
@@ -68,27 +68,41 @@ public class MyCustomConsumer {
                                         continue;
                                 }
 
-                                consumedrecords.forEach((record) -> System.out.println("\n Read Message key = " + record.key() +
-                                                " Value = " + record.value()+
-                                                " Partition = "+record.partition()+
-                                                " Offset = "+record.offset())
+                                consumedrecords.forEach((record) -> {
+                                                System.out.println("\n Read Message key = " + record.key() +
+                                                        " Value = " + record.value() +
+                                                        " Partition = " + record.partition() +
+                                                        " Offset = " + record.offset());
+
+                                        //Commit the offset
+                                        System.out.print("Commiting the Offset " + record.offset()
+                                                + " at partition " + record.partition());
+
+                                        TopicPartition topicPartition = new TopicPartition(TOPIC_NAME, record.partition());
+
+                                        OffsetAndMetadata offsetMetadata = new OffsetAndMetadata(record.offset() + 1);
+
+                                        Map<TopicPartition, OffsetAndMetadata> commitOffset = new HashMap<>();
+
+                                        commitOffset.put(topicPartition, offsetMetadata);
+
+                                        //kafkaConsumer.commitSync(commitOffset);
+                                        }
                                 );
+
 
                                // Thread.sleep(10000);
                         }
+
                 }
-                catch(Exception e)
-                {
-
+                catch(CommitFailedException commitfail) {
+                        System.out.println("Failed to commit the offset. Reason = "+commitfail.getMessage());
+                }
+                catch(Exception e) {
                         System.out.println("Exception occurred :"+ e.getMessage());
-
                 }
                 finally {
-
                         kafkaConsumer.close();
                 }
-
-
         }
-
 }
