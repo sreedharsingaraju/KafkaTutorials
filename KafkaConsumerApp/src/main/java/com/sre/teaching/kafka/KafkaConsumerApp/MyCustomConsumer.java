@@ -13,12 +13,14 @@ import java.util.*;
 public class MyCustomConsumer {
 
         KafkaConsumer<String,Object> kafkaConsumer;
+        MyConsumerRebalanceListener rebalanceListener;
         public static final String TOPIC_NAME="replicatedtopic1";
 
 
-        public MyCustomConsumer(Map<String,Object> config)
-        {
-            kafkaConsumer=new KafkaConsumer<>(config);
+        public MyCustomConsumer(Map<String,Object> config) {
+
+                kafkaConsumer=new KafkaConsumer<>(config);
+                rebalanceListener=new MyConsumerRebalanceListener();
         }
 
         void PrintCommitedOffsets()
@@ -52,7 +54,7 @@ public class MyCustomConsumer {
         }
         public  void PollKafka()
         {
-                kafkaConsumer.subscribe(List.of(TOPIC_NAME));
+                kafkaConsumer.subscribe(List.of(TOPIC_NAME),rebalanceListener);
                 Duration time=Duration.of(100, ChronoUnit.MILLIS);
 
                 PrintCommitedOffsets();
@@ -75,8 +77,8 @@ public class MyCustomConsumer {
                                                         " Offset = " + record.offset());
 
                                         //Commit the offset
-                                        System.out.print("Commiting the Offset " + record.offset()
-                                                + " at partition " + record.partition());
+                                        // System.out.print("Commiting the Offset " + record.offset()
+                                        //       + " at partition " + record.partition());
 
                                         TopicPartition topicPartition = new TopicPartition(TOPIC_NAME, record.partition());
 
