@@ -918,3 +918,13 @@
 00:56:14.685 [main] WARN  c.e.k.KafkaProducerApplicationCustomData - Succeeded in sending Custom Record
 00:56:14.687 [main] WARN  c.e.k.KafkaProducerApplicationCustomData - CustomData{ID=2,Name='swami',Salary=65000.0,Experience=4}
 01:04:59.523 [kafka-producer-network-thread | producer-1] INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
+01:29:23.556 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition customdatatopic-0 to 0 since the associated topicId changed from null to qf0b57GoRE2DE5r2_t9fFQ
+01:29:23.557 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition customdatatopic-1 to 0 since the associated topicId changed from null to qf0b57GoRE2DE5r2_t9fFQ
+01:29:23.557 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition customdatatopic-2 to 0 since the associated topicId changed from null to qf0b57GoRE2DE5r2_t9fFQ
+01:29:23.557 [main] INFO  c.e.k.s.KafkaCustomSerializer - Custom Serializer invoked
+01:29:23.557 [main] INFO  c.e.k.s.KafkaCustomSerializer - Converted Custom Object to Bytes and returning
+01:29:23.562 [main] INFO  c.e.kafkaproducer.KafkaAPIWrapper - Offset : 1
+ Partition : 2
+ Topic : customdatatopic
+01:29:23.562 [main] WARN  c.e.k.KafkaProducerApplicationCustomData - Succeeded in sending Custom Record
+01:29:23.562 [main] WARN  c.e.k.KafkaProducerApplicationCustomData - CustomData{ID=3,Name='anshul',Salary=89000.0,Experience=10}
