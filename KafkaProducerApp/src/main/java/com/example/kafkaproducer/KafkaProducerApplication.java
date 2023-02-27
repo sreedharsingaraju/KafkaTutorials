@@ -1,11 +1,15 @@
 package com.example.kafkaproducer;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.slf4j.LoggerFactory;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,9 +21,10 @@ import static java.lang.Thread.*;
 
 public class KafkaProducerApplication {
 
+	private static final ch.qos.logback.classic.Logger  logger= (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(KafkaProducerApplication.class);
+
 	//static  final  String TOPIC_NAME="kafka-topic";
 	static final String TOPIC_NAME = "replicatedtopic1";
-
 
 	KafkaProducer<String, Object> kfkProducer;
 
@@ -31,7 +36,7 @@ public class KafkaProducerApplication {
 
 	public static Map<String, Object> Configure() {
 
-		System.out.println("Configuring Kafka Producer");
+		logger.info("Configuring Kafka Producer");
 
 		Map<String, Object> kafkaconfig = new HashMap<>();
 
@@ -53,12 +58,12 @@ public class KafkaProducerApplication {
 
 	Callback sendNotification = (RecordMetadata sendStatus, Exception ex) -> {
 
-		System.out.println("Send Async notification came");
+		logger.warn("Send Async notification came");
 		if (ex != null) {
 
-			System.out.println("Exception Occurred : " + ex.getMessage());
+			logger.error("Exception Occurred : " + ex.getMessage());
 		} else {
-			System.out.println("Offset : " + sendStatus.offset()
+			logger.info("Offset : " + sendStatus.offset()
 					+ "\n Partition : " + sendStatus.partition()
 					+ "\n Topic : " + sendStatus.topic());
 		}
@@ -86,12 +91,14 @@ public class KafkaProducerApplication {
 		RecordMetadata sendStatus = kfkProducer.send(prodRecord).get();
 
 
-		System.out.println("Offset : " + sendStatus.offset()
+		logger.info("Offset : " + sendStatus.offset()
 				+ "\n Partition : " + sendStatus.partition()
 				+ "\n Topic : " + sendStatus.topic());
 	}
 
 	public static void main(String[] args) throws InterruptedException {
+
+		logger.warn("Producer Application Started");
 
 		KafkaProducerApplication producer = new KafkaProducerApplication(Configure());
 
@@ -101,12 +108,13 @@ public class KafkaProducerApplication {
 
 
 		while(true) {
+
 			System.out.println("Enter Key: ");
 			keyFromUser = sc.nextLine();
 			System.out.println("Enter Value: ");
 			valFromUser = sc.nextLine();
 
-			System.out.println("\n key is " + keyFromUser + " and value is " + valFromUser);
+			logger.warn("\n key is " + keyFromUser + " and value is " + valFromUser);
 
 			if(keyFromUser.equalsIgnoreCase("exit"))
 			{
