@@ -1,14 +1,16 @@
 package com.sre.teaching.kafka.KafkaConsumerApp;
 
 
+import com.sre.teaching.kafka.KafkaConsumerApp.deserializer.KafkaConsumerCustomDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class KafkaConsumerAppApplication1 {
-	public static final String TOPIC_NAME="replicatedtopic1";
+public class KafkaConsumerAppCustomData {
+
+	private static final String TOPIC_NAME = "customdatatopic";
 
 	static Map<String,Object> Configure()
 	{
@@ -16,8 +18,8 @@ public class KafkaConsumerAppApplication1 {
 
 		configuration.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092, localhost:9093, localhost:9094");
 		configuration.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-		configuration.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class.getName());
-		configuration.put(ConsumerConfig.GROUP_ID_CONFIG,"Consumer.4");
+		configuration.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaConsumerCustomDeserializer.class.getName());
+		configuration.put(ConsumerConfig.GROUP_ID_CONFIG,"CustomConsumer");
 		configuration.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,false);
 		//configuration.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
 

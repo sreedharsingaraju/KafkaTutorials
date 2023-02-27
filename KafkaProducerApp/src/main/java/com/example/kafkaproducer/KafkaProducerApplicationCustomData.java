@@ -1,35 +1,29 @@
 package com.example.kafkaproducer;
 
-import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
-import org.apache.kafka.clients.producer.*;
-import org.apache.kafka.clients.producer.KafkaProducer;
+import com.example.kafkaproducer.datamodel.CustomData;
+import com.example.kafkaproducer.serializer.KafkaCustomSerializer;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.apache.kafka.clients.producer.RecordMetadata;
 import org.slf4j.LoggerFactory;
-
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
-import static java.lang.Thread.*;
+public class KafkaProducerApplicationCustomData {
 
-public class KafkaProducerApplication {
-
-	private static final ch.qos.logback.classic.Logger  logger= (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(KafkaProducerApplication.class);
+	private static final Logger  logger= (Logger)LoggerFactory.getLogger(KafkaProducerApplicationCustomData.class);
 
 	//static  final  String TOPIC_NAME="kafka-topic";
-	private static final String TOPIC_NAME = "replicatedtopic1";
+	private static final String TOPIC_NAME = "customdatatopic";
 
 	private static  KafkaAPIWrapper kafkaAPIWrapper;
 
 
-	public KafkaProducerApplication(Map<String, Object> prodConfig) {
+	public KafkaProducerApplicationCustomData(Map<String, Object> prodConfig) {
 
 		kafkaAPIWrapper = new KafkaAPIWrapper(TOPIC_NAME,prodConfig);
 
@@ -45,7 +39,7 @@ public class KafkaProducerApplication {
 
 		kafkaconfig.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
-		kafkaconfig.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+		kafkaconfig.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaCustomSerializer.class.getName());
 
 		kafkaconfig.put(ProducerConfig.ACKS_CONFIG, "all");
 
@@ -67,37 +61,51 @@ public class KafkaProducerApplication {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		logger.warn("Producer Application Started");
+		logger.warn("Custom Data Producer Application Started");
 
-		KafkaProducerApplication producer = new KafkaProducerApplication(Configure());
+		KafkaProducerApplicationCustomData producer = new KafkaProducerApplicationCustomData(Configure());
 
 		Scanner sc = new Scanner(System.in);
 
-		String keyFromUser = null, valFromUser = null;
+		String keyFromUser = null, nameFromUser = null, ageFromUser=null, salaryFromUser=null, experienceFromUser=null;
 
 
 		while(true) {
 
 			System.out.println("Enter Key: ");
 			keyFromUser = sc.nextLine();
-			System.out.println("Enter Value: ");
-			valFromUser = sc.nextLine();
 
-			logger.warn("\n key is " + keyFromUser + " and value is " + valFromUser);
+			System.out.println("Enter Name: ");
+			nameFromUser = sc.nextLine();
+
+			System.out.println("Enter Salary: ");
+			salaryFromUser = sc.nextLine();
+
+			System.out.println("Enter Experience: ");
+			experienceFromUser = sc.nextLine();
 
 			if(keyFromUser.equalsIgnoreCase("exit"))
 			{
 				break;
 			}
 
+			CustomData customRecord=new CustomData();
+			if(!customRecord.SetRecord(keyFromUser,nameFromUser,salaryFromUser,experienceFromUser)) {
+				logger.error("Failed to set the record!!!!!!");
+			}
+
+
 			try {
-				producer.kafkaAPIWrapper.SendMessage(keyFromUser,valFromUser);
+				producer.kafkaAPIWrapper.SendMessage(keyFromUser,customRecord);
 			} catch (ExecutionException ex) {
-				System.out.println("Exception occurred during sending " + ex.getMessage());
+				logger.error("Exception occurred during sending " + ex.getMessage());
 
 			} catch (InterruptedException e) {
-				System.out.println("Exception occurred during sending " + e.getMessage());
+				logger.error("Exception occurred during sending " + e.getMessage());
 			}
+
+			logger.warn("Succeeded in sending Custom Record");
+			logger.warn(customRecord.toString());
 
 			//Async way of sending
 			/*Future<RecordMetadata> isComplete = producer.kafkaAPIWrapper.SendAsyncMessage("JavaProgAsync",

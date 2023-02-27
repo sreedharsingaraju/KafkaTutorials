@@ -15,9 +15,10 @@ import java.util.Map;
 public class MyConsumerRebalanceListener implements ConsumerRebalanceListener {
 
 
-    KafkaConsumer<String,Object> kafkaConsumer;
-    public  MyConsumerRebalanceListener(KafkaConsumer<String, Object> kafkaConsumer) {
-        this.kafkaConsumer=kafkaConsumer;
+    KafkaConsumer<String, Object> kafkaConsumer;
+
+    public MyConsumerRebalanceListener(KafkaConsumer<String, Object> kafkaConsumer) {
+        this.kafkaConsumer = kafkaConsumer;
     }
 
     @Override
@@ -28,11 +29,10 @@ public class MyConsumerRebalanceListener implements ConsumerRebalanceListener {
         collection.forEach((topicPartition -> System.out.println(topicPartition.partition())));
 
 
-        if(kafkaConsumer!=null) {
+        if (kafkaConsumer != null) {
             kafkaConsumer.commitSync();//Notice
             System.out.println("Committing the Offsets ........");
-        }
-        else
+        } else
             System.out.println("Invalid Kafka consumer object");
     }
 
@@ -45,7 +45,9 @@ public class MyConsumerRebalanceListener implements ConsumerRebalanceListener {
         collection.forEach((topicPartition -> System.out.println(topicPartition.partition())));
 
 
-        System.out.println("Reading the last offset from where to read from file");
+        kafkaConsumer.seekToBeginning(collection);
+
+     /*   System.out.println("Reading the last offset from where to read from file");
         Map<TopicPartition,OffsetAndMetadata> lastSavedOffsets= KafkaConsumerUtil.readOffsetSerializationFile();
 
         if(lastSavedOffsets.size()>0) {
@@ -58,6 +60,7 @@ public class MyConsumerRebalanceListener implements ConsumerRebalanceListener {
                                     lastSavedOffsets.get(partition).offset());
                         }
                     });
-        }
+                */
+
     }
 }
