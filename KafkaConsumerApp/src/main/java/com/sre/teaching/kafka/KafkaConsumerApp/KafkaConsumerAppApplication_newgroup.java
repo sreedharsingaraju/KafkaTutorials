@@ -7,7 +7,7 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class KafkaConsumerAppApplication2 {
+public class KafkaConsumerAppApplication_newgroup {
 
 	static Map<String,Object> Configure()
 	{
@@ -16,8 +16,7 @@ public class KafkaConsumerAppApplication2 {
 		configuration.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092, localhost:9093, localhost:9094");
 		configuration.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		configuration.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class.getName());
-		configuration.put(ConsumerConfig.GROUP_ID_CONFIG,"Consumer.4");
-		configuration.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,false);
+		configuration.put(ConsumerConfig.GROUP_ID_CONFIG,"NewConsumer.1");
 		//configuration.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
 
 		return  configuration;
