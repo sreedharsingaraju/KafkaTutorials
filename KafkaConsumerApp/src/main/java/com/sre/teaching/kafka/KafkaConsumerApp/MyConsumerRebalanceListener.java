@@ -1,6 +1,7 @@
 package com.sre.teaching.kafka.KafkaConsumerApp;
 
 import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 
@@ -12,12 +13,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MyConsumerRebalanceListener implements ConsumerRebalanceListener {
+
+
+    KafkaConsumer<String,Object> kafkaConsumer;
+    public  MyConsumerRebalanceListener(KafkaConsumer<String, Object> kafkaConsumer) {
+        this.kafkaConsumer=kafkaConsumer;
+    }
+
     @Override
     public void onPartitionsRevoked(Collection<TopicPartition> collection) {
 
         System.out.println("Partitions revoked ...");
 
         collection.forEach((topicPartition -> System.out.println(topicPartition.partition())));
+
+
+        if(kafkaConsumer!=null) {
+            kafkaConsumer.commitSync();//Notice
+            System.out.println("Committing the Offsets ........");
+        }
+        else
+            System.out.println("Invalid Kafka consumer object");
     }
 
     @Override
@@ -25,38 +41,23 @@ public class MyConsumerRebalanceListener implements ConsumerRebalanceListener {
 
         System.out.println("Partitions Assigned ...");
 
+
         collection.forEach((topicPartition -> System.out.println(topicPartition.partition())));
 
-    }
 
+        System.out.println("Reading the last offset from where to read from file");
+        Map<TopicPartition,OffsetAndMetadata> lastSavedOffsets= KafkaConsumerUtil.readOffsetSerializationFile();
 
-    private static Map<TopicPartition, OffsetAndMetadata> readOffsetSerializationFile() {
-        Map<TopicPartition, OffsetAndMetadata> offsetsMapFromPath = new HashMap<>();
-        FileInputStream fileInputStream = null;
-        BufferedInputStream bufferedInputStream = null;
-        ObjectInputStream objectInputStream = null;
-        try {
-            String serialiaziedFilePath = ".\\PartitionOffsets.scr";
-            fileInputStream = new FileInputStream(serialiaziedFilePath);
-            bufferedInputStream = new BufferedInputStream(fileInputStream);
-            objectInputStream = new ObjectInputStream(bufferedInputStream);
-            offsetsMapFromPath = (Map<TopicPartition, OffsetAndMetadata>) objectInputStream.readObject();
-            System.out.println("Offset Map read from the path is :  " + offsetsMapFromPath);
-        } catch (Exception e) {
-            System.out.println("Exception Occurred while reading the file : " + e);
-        } finally {
-            try {
-                if (objectInputStream != null)
-                    objectInputStream.close();
-                if (fileInputStream != null)
-                    fileInputStream.close();
-                if (bufferedInputStream != null)
-                    bufferedInputStream.close();
-            } catch (Exception e) {
-                System.out.println("Exception Occurred in closing the exception : " + e);
-            }
-
+        if(lastSavedOffsets.size()>0) {
+            collection.forEach(
+                    (partition)-> {
+                        if(lastSavedOffsets.get(partition)!=null) {
+                            kafkaConsumer.seek(partition, lastSavedOffsets.get(partition));
+                            System.out.println("\n\nRead Saved offset for Partition "+partition.partition()
+                                    +" Offset "+
+                                    lastSavedOffsets.get(partition).offset());
+                        }
+                    });
         }
-        return offsetsMapFromPath;
     }
 }

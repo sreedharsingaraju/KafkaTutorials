@@ -5,6 +5,9 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
@@ -20,7 +23,7 @@ public class MyCustomConsumer {
         public MyCustomConsumer(Map<String,Object> config) {
 
                 kafkaConsumer=new KafkaConsumer<>(config);
-                rebalanceListener=new MyConsumerRebalanceListener();
+                rebalanceListener=new MyConsumerRebalanceListener(kafkaConsumer);
         }
 
         void PrintCommitedOffsets()
@@ -31,10 +34,10 @@ public class MyCustomConsumer {
                 TopicPartition topicPartition4 = new TopicPartition(TOPIC_NAME, 3);
 
                 Map<TopicPartition, OffsetAndMetadata> committed = kafkaConsumer
-                        .committed(new HashSet<>(Arrays.asList(topicPartition1,
-                                topicPartition2,
-                                topicPartition3,
-                                topicPartition4)));
+                                                                        .committed(new HashSet<>(Arrays.asList(topicPartition1,
+                                                                                topicPartition2,
+                                                                                topicPartition3,
+                                                                                topicPartition4)));
 
                 OffsetAndMetadata offsetAndMetadata1 = committed.get(topicPartition1);
                 OffsetAndMetadata offsetAndMetadata2 = committed.get(topicPartition2);
@@ -60,7 +63,7 @@ public class MyCustomConsumer {
                 PrintCommitedOffsets();
                 try {
 
-                        //intentionally kept infite loop as this is Kafka messages listener for its entire life time
+                        //intentionally kept infite loop as this is Kafka messages listener for its entire lifetime
                         while(true) {
 
                                 ConsumerRecords<String, Object> consumedrecords = kafkaConsumer.poll(time);
@@ -70,6 +73,7 @@ public class MyCustomConsumer {
                                         continue;
                                 }
 
+                                //loop for processing the poll returned message record batch
                                 consumedrecords.forEach((record) -> {
                                                 System.out.println("\n Read Message key = " + record.key() +
                                                         " Value = " + record.value() +
@@ -88,7 +92,19 @@ public class MyCustomConsumer {
 
                                         commitOffset.put(topicPartition, offsetMetadata);
 
+                                        //Strategy for using external source
+                                        try {
+                                                KafkaConsumerUtil.writeOffsetsMapToPath(commitOffset);
+                                        } catch (IOException e) {
+                                                System.out.println("Exception during commiting the offset to the file : "+e.getMessage());
+                                        }
+
+                                        //strategy for saving a given offset based on the processed record
                                         //kafkaConsumer.commitSync(commitOffset);
+
+                                        //full commit based on polled offset, this does not cater well for failed processing of meesages
+                                        //kafkaConsumer.commitSync();
+
                                         }
                                 );
 
@@ -107,4 +123,6 @@ public class MyCustomConsumer {
                         kafkaConsumer.close();
                 }
         }
+
+
 }

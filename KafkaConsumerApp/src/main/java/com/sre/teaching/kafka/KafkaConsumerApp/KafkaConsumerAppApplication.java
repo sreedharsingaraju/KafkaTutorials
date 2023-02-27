@@ -17,7 +17,9 @@ public class KafkaConsumerAppApplication {
 		configuration.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		configuration.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class.getName());
 		configuration.put(ConsumerConfig.GROUP_ID_CONFIG,"Consumer.4");
+		configuration.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,false);
 		//configuration.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
+		//configuration.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG,1000);
 
 		return  configuration;
 	}
