@@ -79,7 +79,7 @@ public class MyCustomConsumer {
 
                                 //loop for processing the poll returned message record batch
                                 consumedrecords.forEach((record) -> {
-                                                logger.info("\n Read Message key = " + record.key() +
+                                                logger.warn("\n Read Message key = " + record.key() +
                                                         " Value = " + record.value() +
                                                         " Partition = " + record.partition() +
                                                         " Offset = " + record.offset());

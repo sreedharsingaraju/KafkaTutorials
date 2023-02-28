@@ -21,7 +21,8 @@ import static java.lang.Thread.*;
 
 public class KafkaProducerApplication {
 
-	private static final ch.qos.logback.classic.Logger  logger= (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(KafkaProducerApplication.class);
+	private static final ch.qos.logback.classic.Logger  logger=
+			(ch.qos.logback.classic.Logger)LoggerFactory.getLogger(KafkaProducerApplication.class);
 
 	//static  final  String TOPIC_NAME="kafka-topic";
 	private static final String TOPIC_NAME = "replicatedtopic1";

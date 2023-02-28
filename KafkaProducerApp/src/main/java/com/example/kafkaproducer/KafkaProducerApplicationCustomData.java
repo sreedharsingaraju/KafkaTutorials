@@ -15,7 +15,8 @@ import java.util.concurrent.ExecutionException;
 
 public class KafkaProducerApplicationCustomData {
 
-	private static final Logger  logger= (Logger)LoggerFactory.getLogger(KafkaProducerApplicationCustomData.class);
+	private static final Logger  logger=
+				(Logger)LoggerFactory.getLogger(KafkaProducerApplicationCustomData.class);
 
 	//static  final  String TOPIC_NAME="kafka-topic";
 	private static final String TOPIC_NAME = "customdatatopic";
