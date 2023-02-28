@@ -4,6 +4,8 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,11 +19,13 @@ public class MyCustomConsumer {
 
         KafkaConsumer<String,Object> kafkaConsumer;
         MyConsumerRebalanceListener rebalanceListener;
-        public static final String TOPIC_NAME="replicatedtopic1";
+        public static  String TOPIC_NAME;
 
+        Logger logger = LoggerFactory.getLogger(MyCustomConsumer.class);
 
-        public MyCustomConsumer(Map<String,Object> config) {
+        public MyCustomConsumer(String topic, Map<String,Object> config) {
 
+                TOPIC_NAME=topic;
                 kafkaConsumer=new KafkaConsumer<>(config);
                 rebalanceListener=new MyConsumerRebalanceListener(kafkaConsumer);
         }
@@ -46,13 +50,13 @@ public class MyCustomConsumer {
 
 
 
-                System.out.printf("Partition 0 : Committed: %s \n\n", offsetAndMetadata1 == null ? null : offsetAndMetadata1
+                logger.info("Partition 0 : Committed: %s \n\n", offsetAndMetadata1 == null ? null : offsetAndMetadata1
                         .offset() );
-                System.out.printf("Partition 1 : Committed: %s \n\n", offsetAndMetadata2 == null ? null : offsetAndMetadata2
+                logger.info("Partition 1 : Committed: %s \n\n", offsetAndMetadata2 == null ? null : offsetAndMetadata2
                         .offset() );
-                System.out.printf("Partition 2 : Committed: %s \n\n", offsetAndMetadata3 == null ? null : offsetAndMetadata3
+                logger.info("Partition 2 : Committed: %s \n\n", offsetAndMetadata3 == null ? null : offsetAndMetadata3
                         .offset() );
-                System.out.printf("Partition 3 : Committed: %s \n\n", offsetAndMetadata4 == null ? null : offsetAndMetadata4
+                logger.info("Partition 3 : Committed: %s \n\n", offsetAndMetadata4 == null ? null : offsetAndMetadata4
                         .offset() );
         }
         public  void PollKafka()
@@ -75,7 +79,7 @@ public class MyCustomConsumer {
 
                                 //loop for processing the poll returned message record batch
                                 consumedrecords.forEach((record) -> {
-                                                System.out.println("\n Read Message key = " + record.key() +
+                                                logger.warn("\n Read Message key = " + record.key() +
                                                         " Value = " + record.value() +
                                                         " Partition = " + record.partition() +
                                                         " Offset = " + record.offset());
@@ -93,17 +97,18 @@ public class MyCustomConsumer {
                                         commitOffset.put(topicPartition, offsetMetadata);
 
                                         //Strategy for using external source
-                                        try {
+                                      /*  try {
                                                 KafkaConsumerUtil.writeOffsetsMapToPath(commitOffset);
                                         } catch (IOException e) {
                                                 System.out.println("Exception during commiting the offset to the file : "+e.getMessage());
                                         }
-
+                                */
                                         //strategy for saving a given offset based on the processed record
                                         //kafkaConsumer.commitSync(commitOffset);
 
                                         //full commit based on polled offset, this does not cater well for failed processing of meesages
-                                        //kafkaConsumer.commitSync();
+                                        kafkaConsumer.commitSync();
+                                        logger.info("Committed the offsets");
 
                                         }
                                 );
@@ -114,10 +119,10 @@ public class MyCustomConsumer {
 
                 }
                 catch(CommitFailedException commitfail) {
-                        System.out.println("Failed to commit the offset. Reason = "+commitfail.getMessage());
+                        logger.error("Failed to commit the offset. Reason = "+commitfail.getMessage());
                 }
                 catch(Exception e) {
-                        System.out.println("Exception occurred :"+ e.getMessage());
+                        logger.error("Exception occurred :"+ e.getMessage());
                 }
                 finally {
                         kafkaConsumer.close();

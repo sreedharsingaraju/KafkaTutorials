@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class KafkaConsumerAppApplication_newgroup {
+	public static final String TOPIC_NAME="replicatedtopic1";
 
 	static Map<String,Object> Configure()
 	{
@@ -23,7 +24,7 @@ public class KafkaConsumerAppApplication_newgroup {
 	}
 	public static void main(String[] args) {
 
-		MyCustomConsumer kafkaConsumeMessages=new MyCustomConsumer(Configure());
+		MyCustomConsumer kafkaConsumeMessages=new MyCustomConsumer(TOPIC_NAME,Configure());
 
 		System.out.println("Awaiting Messages ....");
 		kafkaConsumeMessages.PollKafka();
