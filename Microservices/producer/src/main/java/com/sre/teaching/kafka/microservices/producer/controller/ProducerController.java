@@ -23,6 +23,9 @@ public class ProducerController {
     @Autowired
     KafkaTemplate<Integer, String> kafkaTemplate;
 
+    static final String SOURCE="device-scannerr";
+
+
     @Autowired
     DeviceEventsProducer eventsProducer;
     Random random=new Random();
@@ -56,7 +59,8 @@ public class ProducerController {
         */
         //option2
 
-        SendResult<Integer,String> result=eventsProducer.SendDeviceEventWithHeader(deviceData);
+        SendResult<Integer,String> result=eventsProducer.SendDeviceEventWithHeader(deviceData,SOURCE);
+
         if(result==null) {
             return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }

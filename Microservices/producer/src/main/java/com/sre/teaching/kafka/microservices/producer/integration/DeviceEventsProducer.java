@@ -5,12 +5,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sre.teaching.kafka.microservices.producer.datamodel.DeviceData;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.common.header.Header;
+import org.apache.kafka.common.header.internals.RecordHeader;
 import org.apache.kafka.common.protocol.types.Field;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -73,7 +77,7 @@ public class DeviceEventsProducer {
         return  sendResult;
     }
 
-    public SendResult<Integer, String> SendDeviceEventWithHeader(DeviceData deviceData)
+    public SendResult<Integer, String> SendDeviceEventWithHeader(DeviceData deviceData,String source)
     {
         String value=null;
 
@@ -81,39 +85,49 @@ public class DeviceEventsProducer {
             value=objectMapper.writeValueAsString(deviceData);
         } catch (JsonProcessingException e) {
 
-            log.error("Failed to convert Object to String before posting event to Kafka. Reason {}",
-                    e.getMessage());
+            log.error("Failed to convert Object to String before posting event to Kafka." +
+                            " Reason {}", e.getMessage());
             throw new RuntimeException(e);
         }
 
         ProducerRecord<Integer,String> producerRecord=
                      CreateProducerRecord(kafkaTemplate.getDefaultTopic(),
-                                 deviceData.getDeviceID(), value);
+                                 deviceData.getDeviceID(), value,source);
 
         CompletableFuture<SendResult<Integer, String>> sendResultCompletableFuture =
-                                                             kafkaTemplate.send(producerRecord);
+                                            kafkaTemplate.send(producerRecord);
 
         SendResult<Integer, String> sendResult;
         try {
             sendResult = sendResultCompletableFuture.get();
         } catch (InterruptedException e) {
-            log.error("Exception encountered during sending message. Reason : {}",e.getMessage());
+            log.error("Exception encountered during sending message. Reason : {}",
+                                e.getMessage());
             return null;
         } catch (ExecutionException e) {
-            log.error("Exception encountered during sending message. Reason : {}",e.getMessage());
+            log.error("Exception encountered during sending message. Reason : {}",
+                                                e.getMessage());
             return null;
         }
 
-        log.info("Message Written at partition {}, Offset {}", sendResult.getRecordMetadata().partition(),
-                sendResult.getRecordMetadata().offset());
+        log.info("Message Written at partition {}, Offset {}",
+                            sendResult.getRecordMetadata().partition(),
+                            sendResult.getRecordMetadata().offset());
 
         return sendResult;
 
     }
 
-    ProducerRecord<Integer, String> CreateProducerRecord(String topicName, Integer key, String value) {
+    ProducerRecord<Integer, String> CreateProducerRecord(String topicName,
+                                                         Integer key,
+                                                         String value,
+                                                         String source) {
 
-        return new ProducerRecord<>(topicName, null, key, value);
+        List<Header> headers=List.of(new RecordHeader("event-source",
+                                source.getBytes()));
+
+        return new ProducerRecord<>(topicName, null, key, value,
+                            Collections.singleton(headers));
     }
 }
 
