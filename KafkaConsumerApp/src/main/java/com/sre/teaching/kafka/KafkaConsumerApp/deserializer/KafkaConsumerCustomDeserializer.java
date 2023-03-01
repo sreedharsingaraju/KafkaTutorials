@@ -13,7 +13,7 @@ public class KafkaConsumerCustomDeserializer implements Deserializer<CustomData>
     Logger logger= (ch.qos.logback.classic.Logger)LoggerFactory.getLogger(KafkaConsumerCustomDeserializer.class);
 
     @Override
-    public CustomData deserialize(String s, byte[] bytes) {
+    public CustomData deserialize(String topicName, byte[] bytes) {
 
         CustomData customData= null;
         try {

@@ -8189,3 +8189,221 @@ org.apache.kafka.common.errors.DisconnectException: null
 15:25:35.105 [main] WARN  c.s.t.k.K.MyCustomConsumer - 
  Read Message key = 78 Value = CustomData{ID=78,Name='sunil',Salary=67889.0,Experience=7} Partition = 2 Offset = 4
 15:25:35.109 [main] INFO  c.s.t.k.K.MyCustomConsumer - Committed the offsets
+15:34:34.892 [main] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Node -1 disconnected.
+17:45:44.549 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Node 0 disconnected.
+17:45:44.550 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Cancelled in-flight FETCH request with correlation id 43303 due to node 0 being disconnected (elapsed time since creation: 1433462ms, elapsed time since send: 1433462ms, request timeout: 30000ms)
+17:45:44.551 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Cancelled in-flight METADATA request with correlation id 43304 due to node 0 being disconnected (elapsed time since creation: 2ms, elapsed time since send: 2ms, request timeout: 30000ms)
+17:45:44.552 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Node 2147483647 disconnected.
+17:45:44.553 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Disconnecting from node 1 due to request timeout.
+17:45:44.553 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Cancelled in-flight FETCH request with correlation id 43301 due to node 1 being disconnected (elapsed time since creation: 1433732ms, elapsed time since send: 1433732ms, request timeout: 30000ms)
+17:45:44.553 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Disconnecting from node 2 due to request timeout.
+17:45:44.553 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Cancelled in-flight FETCH request with correlation id 43302 due to node 2 being disconnected (elapsed time since creation: 1433462ms, elapsed time since send: 1433462ms, request timeout: 30000ms)
+17:45:44.554 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.a.k.clients.FetchSessionHandler - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Error sending fetch request (sessionId=519224784, epoch=13648) to node 0:
+org.apache.kafka.common.errors.DisconnectException: null
+17:45:44.557 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.a.k.clients.FetchSessionHandler - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Error sending fetch request (sessionId=1042327438, epoch=13646) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+17:45:44.557 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.a.k.clients.FetchSessionHandler - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Error sending fetch request (sessionId=1285707935, epoch=13645) to node 2:
+org.apache.kafka.common.errors.DisconnectException: null
+17:45:44.558 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Group coordinator localhost:9092 (id: 2147483647 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: true. Rediscovery will be attempted.
+17:45:44.951 [main] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Disconnecting from node 2 due to request timeout.
+17:45:44.952 [main] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Cancelled in-flight FIND_COORDINATOR request with correlation id 43306 due to node 2 being disconnected (elapsed time since creation: 273ms, elapsed time since send: 1433817ms, request timeout: 30000ms)
+17:45:45.517 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Discovered group coordinator localhost:9092 (id: 2147483647 rack: null)
+17:45:45.520 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Attempt to heartbeat with Generation{generationId=9, memberId='consumer-CustomConsumer-1-d0521144-e551-4cc5-be91-3ae336203440', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+17:45:45.520 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Resetting generation and member id due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+17:45:45.520 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Request joining group due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+17:45:45.520 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Giving away all assigned partitions as lost since generation/memberID has been reset,indicating that consumer is in old state or no longer part of the group
+17:45:45.520 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Lost previously assigned partitions customdatatopic-0, customdatatopic-1, customdatatopic-2
+17:45:45.522 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Failing OffsetCommit request since the consumer is not part of an active group
+17:45:45.522 [main] ERROR o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] User provided listener com.sre.teaching.kafka.KafkaConsumerApp.MyConsumerRebalanceListener failed on invocation of onPartitionsLost for partitions [customdatatopic-0, customdatatopic-1, customdatatopic-2]
+org.apache.kafka.clients.consumer.CommitFailedException: Offset commit cannot be completed since the consumer is not part of an active group for auto partition assignment; it is likely that the consumer was kicked out of the group.
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.sendOffsetCommitRequest(ConsumerCoordinator.java:1311)
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.commitOffsetsSync(ConsumerCoordinator.java:1168)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.commitSync(KafkaConsumer.java:1506)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.commitSync(KafkaConsumer.java:1405)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.commitSync(KafkaConsumer.java:1362)
+	at com.sre.teaching.kafka.KafkaConsumerApp.MyConsumerRebalanceListener.onPartitionsRevoked(MyConsumerRebalanceListener.java:33)
+	at org.apache.kafka.clients.consumer.ConsumerRebalanceListener.onPartitionsLost(ConsumerRebalanceListener.java:198)
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.invokePartitionsLost(ConsumerCoordinator.java:363)
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.onJoinPrepare(ConsumerCoordinator.java:821)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.joinGroupIfNeeded(AbstractCoordinator.java:443)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureActiveGroup(AbstractCoordinator.java:385)
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:552)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1276)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1240)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220)
+	at com.sre.teaching.kafka.KafkaConsumerApp.MyCustomConsumer.PollKafka(MyCustomConsumer.java:73)
+	at com.sre.teaching.kafka.KafkaConsumerApp.KafkaConsumerAppCustomData.main(KafkaConsumerAppCustomData.java:33)
+17:45:45.523 [main] ERROR c.s.t.k.K.MyCustomConsumer - Exception occurred :User rebalance callback throws an error
+17:45:45.524 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Resetting generation and member id due to: consumer pro-actively leaving the group
+17:45:45.524 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Request joining group due to: consumer pro-actively leaving the group
+17:45:45.525 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+17:45:45.525 [main] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+17:45:45.525 [main] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+17:45:45.533 [main] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-CustomConsumer-1 unregistered
+13:13:43.470 [main] INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092, localhost:9093, localhost:9094]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-CustomConsumer-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = CustomConsumer
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class com.sre.teaching.kafka.KafkaConsumerApp.deserializer.KafkaConsumerCustomDeserializer
+
+13:13:44.413 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.3.2
+13:13:44.416 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: b66af662e61082cb
+13:13:44.416 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1677656624411
+13:13:44.460 [main] INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Subscribed to topic(s): customdatatopic
+13:13:44.782 [main] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Node -3 disconnected.
+13:13:44.787 [main] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Connection to node -3 (localhost/127.0.0.1:9094) could not be established. Broker may not be available.
+13:13:44.787 [main] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Bootstrap broker localhost:9094 (id: -3 rack: null) disconnected
+13:13:45.064 [main] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Resetting the last seen epoch of partition customdatatopic-0 to 14 since the associated topicId changed from null to qf0b57GoRE2DE5r2_t9fFQ
+13:13:45.065 [main] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Resetting the last seen epoch of partition customdatatopic-2 to 10 since the associated topicId changed from null to qf0b57GoRE2DE5r2_t9fFQ
+13:13:45.065 [main] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Resetting the last seen epoch of partition customdatatopic-1 to 13 since the associated topicId changed from null to qf0b57GoRE2DE5r2_t9fFQ
+13:13:45.070 [main] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Cluster ID: IzSEXMkoSx2XgxuAFsUc0g
+13:13:45.077 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Discovered group coordinator localhost:9092 (id: 2147483647 rack: null)
+13:13:45.091 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Found no committed offset for partition customdatatopic-3
+13:13:45.092 [main] INFO  c.s.t.k.K.MyCustomConsumer - Partition 0 : Committed: %s 
+
+
+13:13:45.092 [main] INFO  c.s.t.k.K.MyCustomConsumer - Partition 1 : Committed: %s 
+
+
+13:13:45.092 [main] INFO  c.s.t.k.K.MyCustomConsumer - Partition 2 : Committed: %s 
+
+
+13:13:45.092 [main] INFO  c.s.t.k.K.MyCustomConsumer - Partition 3 : Committed: %s 
+
+
+13:13:45.094 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] (Re-)joining group
+13:13:45.118 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Request joining group due to: need to re-join with the given member-id: consumer-CustomConsumer-1-660241d9-331c-46cf-8165-a7574416525d
+13:13:45.118 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+13:13:45.119 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] (Re-)joining group
+13:13:45.122 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Successfully joined group with generation Generation{generationId=11, memberId='consumer-CustomConsumer-1-660241d9-331c-46cf-8165-a7574416525d', protocol='range'}
+13:13:45.162 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Finished assignment for group at generation 11: {consumer-CustomConsumer-1-660241d9-331c-46cf-8165-a7574416525d=Assignment(partitions=[customdatatopic-0, customdatatopic-1, customdatatopic-2])}
+13:13:45.169 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Successfully synced group in generation Generation{generationId=11, memberId='consumer-CustomConsumer-1-660241d9-331c-46cf-8165-a7574416525d', protocol='range'}
+13:13:45.170 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Notifying assignor about the new Assignment(partitions=[customdatatopic-0, customdatatopic-1, customdatatopic-2])
+13:13:45.174 [main] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Adding newly assigned partitions: customdatatopic-0, customdatatopic-1, customdatatopic-2
+13:13:45.174 [main] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Seeking to earliest offset of partition customdatatopic-0
+13:13:45.175 [main] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Seeking to earliest offset of partition customdatatopic-1
+13:13:45.175 [main] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Seeking to earliest offset of partition customdatatopic-2
+13:13:45.198 [main] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Resetting offset for partition customdatatopic-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9093 (id: 1 rack: null)], epoch=10}}.
+13:13:45.269 [kafka-coordinator-heartbeat-thread | CustomConsumer] INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-CustomConsumer-1, groupId=CustomConsumer] Resetting offset for partition customdatatopic-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=14}}.
+13:13:45.368 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - Successfully Deserialized to Object
+13:13:45.372 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - CustomData{ID=2,Name='swami',Salary=65000.0,Experience=4}
+13:13:45.373 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - Successfully Deserialized to Object
+13:13:45.373 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - CustomData{ID=3,Name='anshul',Salary=89000.0,Experience=10}
+13:13:45.373 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - Successfully Deserialized to Object
+13:13:45.373 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - CustomData{ID=3,Name='Sreedhar',Salary=60000.0,Experience=10}
+13:13:45.373 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - Successfully Deserialized to Object
+13:13:45.373 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - CustomData{ID=entry2,Name='shyam',Salary=70000.0,Experience=6}
+13:13:45.374 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - Successfully Deserialized to Object
+13:13:45.374 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - CustomData{ID=78,Name='sunil',Salary=67889.0,Experience=7}
+13:13:45.391 [main] WARN  c.s.t.k.K.MyCustomConsumer - 
+ Read Message key = 2 Value = CustomData{ID=2,Name='swami',Salary=65000.0,Experience=4} Partition = 2 Offset = 0
+13:13:45.412 [main] INFO  c.s.t.k.K.MyCustomConsumer - Committed the offsets
+13:13:45.412 [main] WARN  c.s.t.k.K.MyCustomConsumer - 
+ Read Message key = 3 Value = CustomData{ID=3,Name='anshul',Salary=89000.0,Experience=10} Partition = 2 Offset = 1
+13:13:45.418 [main] INFO  c.s.t.k.K.MyCustomConsumer - Committed the offsets
+13:13:45.418 [main] WARN  c.s.t.k.K.MyCustomConsumer - 
+ Read Message key = 3 Value = CustomData{ID=3,Name='Sreedhar',Salary=60000.0,Experience=10} Partition = 2 Offset = 2
+13:13:45.429 [main] INFO  c.s.t.k.K.MyCustomConsumer - Committed the offsets
+13:13:45.429 [main] WARN  c.s.t.k.K.MyCustomConsumer - 
+ Read Message key = entry2 Value = CustomData{ID=entry2,Name='shyam',Salary=70000.0,Experience=6} Partition = 2 Offset = 3
+13:13:45.444 [main] INFO  c.s.t.k.K.MyCustomConsumer - Committed the offsets
+13:13:45.444 [main] WARN  c.s.t.k.K.MyCustomConsumer - 
+ Read Message key = 78 Value = CustomData{ID=78,Name='sunil',Salary=67889.0,Experience=7} Partition = 2 Offset = 4
+13:13:45.448 [main] INFO  c.s.t.k.K.MyCustomConsumer - Committed the offsets
+13:13:45.488 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - Successfully Deserialized to Object
+13:13:45.488 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - CustomData{ID=1,Name='mahi',Salary=45000.0,Experience=2}
+13:13:45.488 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - Successfully Deserialized to Object
+13:13:45.488 [main] INFO  c.s.t.k.K.d.KafkaConsumerCustomDeserializer - CustomData{ID=56,Name='4545',Salary=67777.0,Experience=5655656}
+13:13:45.490 [main] WARN  c.s.t.k.K.MyCustomConsumer - 
+ Read Message key = 1 Value = CustomData{ID=1,Name='mahi',Salary=45000.0,Experience=2} Partition = 0 Offset = 0
+13:13:45.493 [main] INFO  c.s.t.k.K.MyCustomConsumer - Committed the offsets
+13:13:45.493 [main] WARN  c.s.t.k.K.MyCustomConsumer - 
+ Read Message key = 56 Value = CustomData{ID=56,Name='4545',Salary=67777.0,Experience=5655656} Partition = 0 Offset = 1
+13:13:45.496 [main] INFO  c.s.t.k.K.MyCustomConsumer - Committed the offsets
