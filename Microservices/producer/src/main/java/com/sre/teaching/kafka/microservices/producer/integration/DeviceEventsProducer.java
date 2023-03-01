@@ -126,8 +126,8 @@ public class DeviceEventsProducer {
         List<Header> headers=List.of(new RecordHeader("event-source",
                                 source.getBytes()));
 
-        return new ProducerRecord<>(topicName, null, key, value,
-                            Collections.singleton(headers));
+        return new ProducerRecord<Integer,String>(topicName, (Integer) null, key, value,
+                headers);
     }
 }
 
