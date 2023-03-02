@@ -2,6 +2,7 @@ package com.sre.teaching.kafka.microservices.producer.controller;
 
 import com.sre.teaching.kafka.microservices.producer.datamodel.DeviceData;
 import com.sre.teaching.kafka.microservices.producer.datamodel.DeviceType;
+import com.sre.teaching.kafka.microservices.producer.datamodel.EventType;
 import com.sre.teaching.kafka.microservices.producer.datamodel.ResponseData;
 import com.sre.teaching.kafka.microservices.producer.integration.DeviceEventsProducer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +58,10 @@ public class ProducerController {
             return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
         */
-        //option2
 
-        SendResult<Integer,String> result=eventsProducer.SendDeviceEventWithHeader(deviceData,SOURCE);
+        //option2
+        SendResult<Integer,String> result=
+                eventsProducer.SendDeviceEventWithHeader(deviceData,SOURCE,EventType.NEWDEVICE);
 
         if(result==null) {
             return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

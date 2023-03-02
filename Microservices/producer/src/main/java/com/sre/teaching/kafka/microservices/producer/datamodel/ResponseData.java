@@ -10,4 +10,5 @@ public class ResponseData {
     Integer partition;
     Long offset;
     DeviceData deviceData;
+
 }
