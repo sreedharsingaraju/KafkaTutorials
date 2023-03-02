@@ -3,6 +3,8 @@ package com.sre.teaching.kafka.microservices.producer.integration;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sre.teaching.kafka.microservices.producer.datamodel.DeviceData;
+import com.sre.teaching.kafka.microservices.producer.datamodel.EventType;
+import com.sre.teaching.kafka.microservices.producer.datamodel.MessageHeader;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.header.Header;
@@ -77,7 +79,8 @@ public class DeviceEventsProducer {
         return  sendResult;
     }
 
-    public SendResult<Integer, String> SendDeviceEventWithHeader(DeviceData deviceData,String source)
+    public SendResult<Integer, String> SendDeviceEventWithHeader(
+                        DeviceData deviceData,String source, EventType evemtType)
     {
         String value=null;
 
@@ -92,7 +95,7 @@ public class DeviceEventsProducer {
 
         ProducerRecord<Integer,String> producerRecord=
                      CreateProducerRecord(kafkaTemplate.getDefaultTopic(),
-                                 deviceData.getDeviceID(), value,source);
+                                 deviceData.getDeviceID(), value,source, evemtType);
 
         CompletableFuture<SendResult<Integer, String>> sendResultCompletableFuture =
                                             kafkaTemplate.send(producerRecord);
@@ -121,13 +124,29 @@ public class DeviceEventsProducer {
     ProducerRecord<Integer, String> CreateProducerRecord(String topicName,
                                                          Integer key,
                                                          String value,
-                                                         String source) {
+                                                         String source,
+                                                         EventType eventType) {
 
-        List<Header> headers=List.of(new RecordHeader("event-source",
-                                source.getBytes()));
+        ObjectMapper objectMapper=new ObjectMapper();
 
-        return new ProducerRecord<Integer,String>(topicName, (Integer) null, key, value,
-                headers);
+
+        MessageHeader messageHeader=new MessageHeader();
+        messageHeader.setEventSource(source);
+        messageHeader.setEventType(eventType);
+
+        List<Header> headers= null;
+        try {
+            headers = List.of(new RecordHeader("custom-data",
+                    objectMapper.writeValueAsBytes(messageHeader)));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        return new ProducerRecord<Integer,String>(topicName,
+                            (Integer) null,
+                            key,
+                            value,
+                            headers);
     }
 }
 
