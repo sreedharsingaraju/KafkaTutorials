@@ -101,11 +101,13 @@ public class KafkaProducerApplication {
 			}
 
 			//Async way of sending
-			/*Future<RecordMetadata> isComplete = producer.kafkaAPIWrapper.SendAsyncMessage("JavaProgAsync",
+			Future<RecordMetadata> isComplete = producer.kafkaAPIWrapper.SendAsyncMessage("JavaProgAsync",
 					"Message Sent in an Async way from a Java Prog");
 			while (!isComplete.isDone()) {
 				sleep(1000);
-			}*/
+			}
+		isComplete.notify();
+
 
 		}
 		producer.Close();
