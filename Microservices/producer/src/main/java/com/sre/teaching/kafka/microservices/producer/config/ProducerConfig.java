@@ -13,6 +13,7 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,6 +60,11 @@ public class ProducerConfig {
 
         kafkaconfig.put(org.apache.kafka.clients.producer.ProducerConfig.RETRY_BACKOFF_MS_CONFIG,
                                                 retryBackoffMs);
+
+        kafkaconfig.put(org.apache.kafka.clients.producer.ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000);
+
+        kafkaconfig.put(org.apache.kafka.clients.producer.ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, 2000);
+
 
 
         return kafkaconfig;

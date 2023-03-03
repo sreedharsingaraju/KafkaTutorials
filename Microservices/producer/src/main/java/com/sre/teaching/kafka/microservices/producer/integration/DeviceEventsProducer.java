@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
@@ -30,6 +31,7 @@ public class DeviceEventsProducer {
     @Autowired
     ObjectMapper objectMapper;
 
+  //  @Transactional
     public SendResult<Integer, String> SendDeviceEvent(DeviceData deviceData)
     {
         String value;
@@ -110,6 +112,11 @@ public class DeviceEventsProducer {
         } catch (ExecutionException e) {
             log.error("Exception encountered during sending message. Reason : {}",
                                                 e.getMessage());
+            return null;
+        }
+        catch(Exception ex) {
+            log.error("Unhandled exception Occurred during sending message. Reason : {}",
+                    ex.getMessage());
             return null;
         }
 
