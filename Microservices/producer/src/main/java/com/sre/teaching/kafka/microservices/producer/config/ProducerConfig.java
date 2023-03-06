@@ -2,6 +2,8 @@ package com.sre.teaching.kafka.microservices.producer.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -12,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.ProducerListener;
 
 
 import java.util.HashMap;
@@ -84,6 +87,25 @@ public class ProducerConfig {
     {
         KafkaTemplate<Integer, String> kafkaTemplate= new KafkaTemplate<>(producerFactory);
         kafkaTemplate.setDefaultTopic(defaultTopic);
+
+        kafkaTemplate.setProducerListener(new ProducerListener<>() {
+            @Override
+            public void onSuccess(ProducerRecord<Integer, String> producerRecord, RecordMetadata recordMetadata) {
+                log.info("Produced record successfully {}", producerRecord);
+
+                log.info("Produced record successfully at partition {}, Offset {}",
+                        recordMetadata.partition(),
+                        recordMetadata.offset());
+            }
+
+            @Override
+            public void onError(ProducerRecord<Integer, String> producerRecord, RecordMetadata recordMetadata,
+                                Exception exception)
+            {
+                log.info("Failure occurred win sending  record {}", producerRecord);
+                log.info("Exception Reason is {}",exception.getMessage());
+            }
+        });
 
         return  kafkaTemplate;
     }
