@@ -83,7 +83,6 @@ public class ProducerApplicationTest {
 
         embeddedKafkaBroker.consumeFromAllEmbeddedTopics(consumer);
 
-
     }
 
     //for embedded kafka

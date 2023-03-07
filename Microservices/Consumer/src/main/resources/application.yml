@@ -4,23 +4,12 @@ server:
 spring:
   kafka:
     consumer:
-      enable-auto-commit: true
+     # enable-auto-commit: true
       bootstrap-servers: localhost:9092, localhost:9093, localhost:9094
       key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       group-id: device-events-consumer
 ---
-#spring:
-#  datasource:
-#    url: jdbc:h2:mem:mydb
-#    driverClassName: org.h2.Driver
-#  jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    defer-datasource-initialization: true
-#    generate-ddl: true
-#  h2:
- #   console:
- #     enabled: true
 spring:
   datasource:
     url: jdbc:h2:mem:eventsdb
