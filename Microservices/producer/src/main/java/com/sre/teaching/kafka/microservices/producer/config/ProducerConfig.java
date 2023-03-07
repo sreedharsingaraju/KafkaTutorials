@@ -9,6 +9,7 @@ import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -40,6 +41,8 @@ public class ProducerConfig {
 
 
 
+
+
     //1. create the configuration
 
     public Map<String, Object> producerConfig() {
@@ -67,8 +70,6 @@ public class ProducerConfig {
         kafkaconfig.put(org.apache.kafka.clients.producer.ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000);
 
         kafkaconfig.put(org.apache.kafka.clients.producer.ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, 2000);
-
-
 
         return kafkaconfig;
     }
