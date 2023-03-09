@@ -1,6 +1,14 @@
 server:
   port: 2090
 
+recover.retry.key: "recover.retry.count"
+max.recover.retry.count: 4
+
+mytopics:
+  main: "devices-topic"
+  retry: "devices-topic.RETRY"
+  dlt: "devices-topic.DLT"
+
 spring:
   kafka:
     consumer:
@@ -9,6 +17,13 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       group-id: device-events-consumer
+    #producer is defined here so that it can be used for publishing to
+    #retry or dlt during recovery
+    producer:
+      bootstrap-servers: localhost:9092, localhost:9093, localhost:9094
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
 ---
 spring:
   datasource:

@@ -5,6 +5,7 @@ package com.sre.teaching.kafka.microservices.consumer.integration;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.listener.MessageListener;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class DeviceEventsConsumer implements MessageListener<Integer, String> {
     //enable this if need to get the default behavior
     //default is commit offset after entire batch is processed by the
     //listener factory
-   // @KafkaListener(topics = {"devices-topic"})
+    @KafkaListener(topics = {"${mytopics.main}"}, groupId = "main-messages-group")
     public void onMessage(ConsumerRecord<Integer, String> record) {
 
         log.info("Message Received !!!!!!!!!!!!");
