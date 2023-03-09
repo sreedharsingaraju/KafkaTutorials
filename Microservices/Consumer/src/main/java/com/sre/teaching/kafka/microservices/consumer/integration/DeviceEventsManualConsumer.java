@@ -16,13 +16,10 @@ public class DeviceEventsManualConsumer implements AcknowledgingMessageListener<
     @Autowired
     CommonProcessing messageProcessor;
 
-
-
-
     //enable this if need manual commit behaviour while
     //consuming and processing messages
     @Override
-    @KafkaListener(topics = {"devices-topic"})
+    //@KafkaListener(topics = {"devices-topic"})
     public void onMessage(ConsumerRecord<Integer, String> record, Acknowledgment acknowledgment) {
 
         log.info("Message Received in Manual commit call back!!!!!!!!!!!!");

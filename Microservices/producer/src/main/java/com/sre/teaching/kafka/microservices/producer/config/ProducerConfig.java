@@ -21,7 +21,8 @@ import org.springframework.kafka.support.ProducerListener;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//Enable this configuration if need to take programmatic control
+//@Configuration
 @Slf4j
 public class ProducerConfig {
 

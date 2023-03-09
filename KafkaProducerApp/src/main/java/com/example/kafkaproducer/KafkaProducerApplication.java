@@ -54,7 +54,6 @@ public class KafkaProducerApplication {
 
 		kafkaconfig.put(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, 15000);
 
-
 		return kafkaconfig;
 	}
 

@@ -5,12 +5,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sre.teaching.kafka.microservices.producer.datamodel.DeviceData;
 import com.sre.teaching.kafka.microservices.producer.datamodel.EventType;
 import com.sre.teaching.kafka.microservices.producer.datamodel.MessageHeader;
+import com.sre.teaching.kafka.microservices.producer.datamodel.RetryMessageHeader;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.header.Header;
 import org.apache.kafka.common.header.internals.RecordHeader;
 import org.apache.kafka.common.protocol.types.Field;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,9 @@ public class DeviceEventsProducer {
 
     @Autowired
     ObjectMapper objectMapper;
+
+    @Value("${recover.retry.key}")
+    String RECOVERY_RETRY_COUNT_KEY;
 
   //  @Transactional
     public SendResult<Integer, String> SendDeviceEvent(DeviceData deviceData)
@@ -137,14 +142,12 @@ public class DeviceEventsProducer {
         ObjectMapper objectMapper=new ObjectMapper();
 
 
-        MessageHeader messageHeader=new MessageHeader();
-        messageHeader.setEventSource(source);
-        messageHeader.setEventType(eventType);
+        RetryMessageHeader retryMessageHeader=new RetryMessageHeader(0);
 
         List<Header> headers= null;
         try {
-            headers = List.of(new RecordHeader("custom-data",
-                    objectMapper.writeValueAsBytes(messageHeader)));
+            headers = List.of(new RecordHeader(RECOVERY_RETRY_COUNT_KEY,
+                    objectMapper.writeValueAsBytes(retryMessageHeader)));
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
