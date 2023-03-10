@@ -24,7 +24,7 @@ public class DeviceEventsConsumer implements MessageListener<Integer, String> {
     //enable this if need to get the default behavior
     //default is commit offset after entire batch is processed by the
     //listener factory
-    @KafkaListener(topics = {"${mytopics.main}"}, groupId = "main-messages-group")
+   // @KafkaListener(topics = {"${mytopics.main}"}, groupId = "main-messages-group")
     public void onMessage(ConsumerRecord<Integer, String> record) {
 
         log.info("Message Received !!!!!!!!!!!!");

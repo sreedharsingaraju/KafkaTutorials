@@ -1,7 +1,7 @@
 package com.sre.teaching.kafka.microservices.consumer.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sre.teaching.kafka.microservices.consumer.datamodel.RetryMessageHeader;
+import com.sre.teaching.kafka.microservices.consumer.datamodel.RestoreRetryMessageHeader;
 import com.sre.teaching.kafka.microservices.consumer.service.DeviceDataPersistentService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -39,9 +39,9 @@ public class CommonProcessing {
 
                 try {
 
-                    RetryMessageHeader retryMessageHeader =
+                    RestoreRetryMessageHeader retryMessageHeader =
                             objectMapper.readValue(recordHeader.value(),
-                                    RetryMessageHeader.class);
+                                    RestoreRetryMessageHeader.class);
 
                     log.info("Header Key {} Header value {}", recordHeader.key(), retryMessageHeader);
 
@@ -49,6 +49,9 @@ public class CommonProcessing {
                         //this should be fine as the record would have been written to DLT by the
                         //failrecovery implementation
                         log.info("Max recovery retries reached so skipping this message {}", record.value());
+                        log.info("recovery key: {}, max recovery retry count : {}, Recovery Attempt : {}",
+                                RECOVERY_RETRY_COUNT_KEY, MAX_RECOVERY_RETRY_COUNT,retryMessageHeader.getRetryCount() );
+
                         return true;
                     }
                 } catch (IOException e) {
@@ -70,11 +73,6 @@ public class CommonProcessing {
 
         log.info(" Headers values {}", record.headers());
 
-
-        if(isRecoveryRetryLimit(record))
-        {
-            return true;
-        }
 
         log.info("Thread {} Received data in Consumer : key {} value {}  partition {}  offset {}",
                 Thread.currentThread().threadId(),
