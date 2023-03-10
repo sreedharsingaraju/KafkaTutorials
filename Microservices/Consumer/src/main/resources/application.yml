@@ -1,19 +1,34 @@
 server:
   port: 2090
 
+#custom properties to control the error retries
+#and recovery retries count
 recover.retry.key: "recover.retry.count"
-max.recover.retry.count: 4
-
+max.recover.retry.count: 2
+max.retry.count: 3
+max.retry.backoff.ms: 2000
 mytopics:
   main: "devices-topic"
   retry: "devices-topic.RETRY"
   dlt: "devices-topic.DLT"
 
+
 spring:
   kafka:
+
+    #configure security
+  #  security:
+ #     protocol: "SSL"
+  #  ssl:
+ #     trust-store-location: file:///E:/MyWork/trainings/Kafka/Code/KafkaTutorials/security-ssl/client-keys/client.truststore.jks
+  #    trust-store-password: kafkassl
+    #till here - security
+
     consumer:
      # enable-auto-commit: true
       bootstrap-servers: localhost:9092, localhost:9093, localhost:9094
+      #enable for enabling security
+      #bootstrap-servers: localhost:10092, localhost:10093,localhost:10094
       key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       group-id: device-events-consumer
@@ -23,6 +38,9 @@ spring:
       bootstrap-servers: localhost:9092, localhost:9093, localhost:9094
       key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#enable for enabling security
+#    properties:
+ #     ssl.endpoint.identification.algorithm:
 
 ---
 spring:

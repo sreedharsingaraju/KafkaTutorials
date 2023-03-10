@@ -42,7 +42,9 @@ public class DeviceEventsProducer {
         String value;
 
         try {
+
             value=objectMapper.writeValueAsString(deviceData);
+
         } catch (JsonProcessingException e) {
 
             log.error("Failed to convert Object to String before posting event to Kafka. Reason {}",
@@ -142,21 +144,26 @@ public class DeviceEventsProducer {
         ObjectMapper objectMapper=new ObjectMapper();
 
 
+   //uncomment if want to add headers
+        /*
+        //adding retry count in header
         RetryMessageHeader retryMessageHeader=new RetryMessageHeader(0);
 
         List<Header> headers= null;
         try {
+
             headers = List.of(new RecordHeader(RECOVERY_RETRY_COUNT_KEY,
                     objectMapper.writeValueAsBytes(retryMessageHeader)));
+
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
-        }
+        }*/
 
         return new ProducerRecord<Integer,String>(topicName,
                             (Integer) null,
                             key,
-                            value,
-                            headers);
+                            value
+                            /*headers*/);
     }
 }
 

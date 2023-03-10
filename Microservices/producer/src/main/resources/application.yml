@@ -1,30 +1,25 @@
 
-#spring:
-#  profiles:
- #   active:
-  #    - prod
-
 server.port: 1090
 recover.retry.key: "recover.retry.count"
+
 ---
 
 spring:
-#  config:
- #   activate:
-  #    on-profile:
-   #     - local
+
   kafka:
     template:
       default-topic: "devices-topic"
       #enable for enabling security
-    #  security:
+ #   security:
  #     protocol: "SSL"
-   # ssl:
-    #  trust-store-location: file:///E:/MyWork/trainings/Kafka/Code/KafkaTutorials/security-ssl/client-keys/client.truststore.jks
-    #  trust-store-password: kafkassl
+ #   ssl:
+ #     trust-store-location: file:///E:/MyWork/trainings/Kafka/Code/KafkaTutorials/security-ssl/client-keys/client.truststore.jks
+ #     trust-store-password: kafkassl
+
+
     producer:
       #enable for enabling security
-      # bootstrap-servers: localhost:10093,localhost:10094
+      #bootstrap-servers: localhost:10092,localhost:10093,localhost:10094
       bootstrap-servers: localhost:9092, localhost:9093,localhost:9094
       key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -33,10 +28,5 @@ spring:
         retries: 10
         retry.backoff.ms: 1000
         request.timeout.ms: 1000
-
-      #enable for enabling security
-      #  ssl:
-       #   endpoint:
-        #    identification:
-        #      algorithm:
-
+        #enable for enabling security
+  #      ssl.endpoint.identification.algorithm:

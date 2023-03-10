@@ -1,5 +1,6 @@
 package com.sre.teaching.kafka.microservices.consumer.config;
 
+import com.sre.teaching.kafka.microservices.consumer.config.plugins.CustomErrorHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.kafka.listener.ContainerProperties;
 
 @Configuration
 @Slf4j
@@ -42,7 +44,7 @@ public class ConsumerConfig {
         //enable this code if want manual commit of offsets
         //make sure the listener DeviceEventsManualConsumer is enabled to process
         // and commit manually offsets
-        // factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+         factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
 
         //enable this code if want batch mode commit of offsets
         //make sure the DeviceEvwntsBatchProcessing listener is enabled to process
