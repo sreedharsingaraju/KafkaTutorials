@@ -3,6 +3,7 @@ package com.sre.teaching.kafka.microservices.consumer.config;
 import com.sre.teaching.kafka.microservices.consumer.config.plugins.CustomErrorHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,8 @@ public class ConsumerConfig {
     @Autowired
     CustomErrorHandler customErrorHandler;
 
+    @Value("${retry.interval.ms}")
+    Long RETRY_INTERVAL_MS;
 
     //this function helps create and configure custom error handlers
 
@@ -58,4 +61,34 @@ public class ConsumerConfig {
 
         return factory;
     }
+
+    //Another factory which can be used for retry listeners
+    @Bean("retryMessageDelayConcurrentKafkaListenerContainerFactory")
+    public ConcurrentKafkaListenerContainerFactory<?,?>
+            retryMessageDelayConcurrentKafkaListenerContainerFactory(
+                    ConcurrentKafkaListenerContainerFactoryConfigurer configurer,
+                    ConsumerFactory<Object, Object> kafkaConsumerFactory) {
+
+
+        ConcurrentKafkaListenerContainerFactory<Object, Object> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+
+
+        configurer.configure(factory, kafkaConsumerFactory);
+
+
+        //configure the custom error handling hook
+        factory.setCommonErrorHandler(customErrorHandler.createCustomHandler());
+
+        //enable this code if want manual commit of offsets
+        //make sure the listener DeviceEventsManualConsumer is enabled to process
+        // and commit manually offsets
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+
+        factory.getContainerProperties().setIdleBetweenPolls(RETRY_INTERVAL_MS);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+        return factory;
+    }
+
+
 }

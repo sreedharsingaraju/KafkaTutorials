@@ -166,7 +166,7 @@ public class ProducerApplicationTest {
             try {
                 testDeviceData = converter.readValue(record.value(), DeviceData.class);
             } catch (JsonProcessingException e) {
-                log.error("Exception during conversion . {}", e.getMessage());
+                log.error("Exception during conversion . {}", record.value());
 
                 return;
             }
