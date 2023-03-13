@@ -53,7 +53,7 @@ public class FailureRecoveryProcessor {
                     retryMessageHeader = objectMapper.readValue(header.value(),
                             RestoreRetryMessageHeader.class);
                 } catch (IOException e) {
-                    log.error("Exception during conversion while retrying");
+                    log.error("Exception during conversion while retrying value {}",header.value());
                     return null;
                 }
             }
@@ -113,7 +113,7 @@ public class FailureRecoveryProcessor {
                 header = new RecordHeader(RECOVERY_RETRY_COUNT_KEY,
                         objectMapper.writeValueAsBytes(restoreRetryMessageHeader));
             } catch (JsonProcessingException e) {
-                log.error("Exception during conversion");
+                log.error("Exception during conversion. value is {}",restoreRetryMessageHeader);
             }
 
             succeeded=true;

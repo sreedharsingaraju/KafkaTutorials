@@ -24,7 +24,10 @@ public class RetryMessagesListener implements AcknowledgingMessageListener<Integ
     //enable this if need to get the default behavior
     //default is commit offset after entire batch is processed by the
     //listener factory
-    @KafkaListener(topics = {"${mytopics.retry}"}, groupId = "recovery-retry-group")
+    //the contaimner bean is a different one which polls after cnfigured interval
+    @KafkaListener(topics = {"${mytopics.retry}"}, groupId = "recovery-retry-group",
+            containerFactory = "retryMessageDelayConcurrentKafkaListenerContainerFactory"
+    )
     public void onMessage(ConsumerRecord<Integer, String> record, Acknowledgment acknowledgment) {
 
         log.info("Message Received from Retry Queue !!!!!!!!!!!!");

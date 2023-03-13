@@ -10,23 +10,29 @@ spring:
     template:
       default-topic: "devices-topic"
       #enable for enabling security
- #   security:
- #     protocol: "SSL"
- #   ssl:
- #     trust-store-location: file:///E:/MyWork/trainings/Kafka/Code/KafkaTutorials/security-ssl/client-keys/client.truststore.jks
- #     trust-store-password: kafkassl
-
+    security:
+      protocol: "SSL"
+    ssl:
+      #following config is for configuring the trust store i which the server sent cert is validated
+      trust-store-location: file:///E:/MyWork/trainings/Kafka/Code/KafkaTutorials/security-ssl/client-keys/client.truststore.jks
+      trust-store-password: kafkassl
+      #following config is for configuring the keystire using which client will send the client certificate
+      key-store-type: "JKS"
+      key-store-location: file:///E:/MyWork/trainings/Kafka/Code/KafkaTutorials/security-ssl/client-keys/client.keystore.jks
+      key-store-password: kafkassl
+      key-password: kafkassl
 
     producer:
       #enable for enabling security
-      #bootstrap-servers: localhost:10092,localhost:10093,localhost:10094
-      bootstrap-servers: localhost:9092, localhost:9093,localhost:9094
+      bootstrap-servers: localhost:10092,localhost:10093,localhost:10094
+      #bootstrap-servers: localhost:9092, localhost:9093,localhost:9094
       key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+     # transaction-id-prefix: tx-
       properties:
         acks: all
         retries: 10
         retry.backoff.ms: 1000
         request.timeout.ms: 1000
         #enable for enabling security
-  #      ssl.endpoint.identification.algorithm:
+        ssl.endpoint.identification.algorithm:
