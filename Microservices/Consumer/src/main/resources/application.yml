@@ -15,9 +15,10 @@ mytopics:
 
 
 spring:
+
   kafka:
 
-    #configure security
+    #configure security for ssl
     security:
       protocol: "SSL"
     ssl:
@@ -30,12 +31,14 @@ spring:
       key-store-password: kafkassl
       key-password: kafkassl
 
-    #till here - security
+    #till here - security settings for ssl
+
     consumer:
      # enable-auto-commit: true
-      #bootstrap-servers: localhost:9092, localhost:9093, localhost:9094
-      #enable for enabling security
+    #bootstrap-servers: localhost:9092, localhost:9093, localhost:9094
+      #enable for enabling SSL security
       bootstrap-servers: localhost:10092, localhost:10093,localhost:10094
+
       key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       group-id: device-events-consumer

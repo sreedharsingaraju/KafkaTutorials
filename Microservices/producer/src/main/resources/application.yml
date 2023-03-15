@@ -23,7 +23,7 @@ spring:
       key-password: kafkassl
 
     producer:
-      #enable for enabling security
+      #enable for enabling SSL security
       bootstrap-servers: localhost:10092,localhost:10093,localhost:10094
       #bootstrap-servers: localhost:9092, localhost:9093,localhost:9094
       key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
