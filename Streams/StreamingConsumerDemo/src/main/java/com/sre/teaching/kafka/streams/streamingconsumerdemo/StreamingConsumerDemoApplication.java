@@ -7,6 +7,7 @@ import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.Printed;
 
 import java.util.Properties;
 
@@ -19,7 +20,9 @@ public class StreamingConsumerDemoApplication {
 
 		KStream<String,String> kstream=streamsBuilder.stream("streams-input");
 
-		kstream.foreach((k,v)-> System.out.println("Key : "+k+" Value: "+v));
+		//kstream.foreach((k,v)-> System.out.println("Key : "+k+" Value: "+v));
+
+		kstream.print(Printed.toSysOut());
 
 		Topology topology=streamsBuilder.build();
 

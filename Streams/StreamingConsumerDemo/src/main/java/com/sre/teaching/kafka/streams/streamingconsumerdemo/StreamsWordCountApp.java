@@ -5,8 +5,10 @@ import org.apache.kafka.common.protocol.types.ArrayOf;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
+import org.apache.kafka.streams.kstream.KGroupedStream;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
+import org.apache.kafka.streams.kstream.Printed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -26,22 +28,24 @@ public class StreamsWordCountApp {
         KStream<String,String> streamOfText=streamsBuilder.stream(configurer.SourceTopic());
 
         //2. mapvalue: convert to same case, in this eg to lower case "this is a text\n this is another text"
+       KTable<String, Long> wordsCountTable=
 
-       KTable<String, Long> wordsCountTable=streamOfText.mapValues(text -> text.toLowerCase())
-
+                 streamOfText.mapValues(text -> text.toLowerCase())
                 //3. flatmapValues: make every word in the strea data as seperate message
                 .flatMapValues(lowercasetext -> Arrays.asList(lowercasetext.split(" ")))
-
-                //4. Setkey: now make the keys same as value
+                //4. Setkey: now make the keys same as valu
                 .selectKey((emptykey, word) -> word)
                 //5. Group by based on key
                 .groupByKey()
-                //6. Get count of such grouped key based messaes
+                //.groupBy((emptykey,word)->word)
+                //6. Get count of such grouped key based messages
                 .count();
 
-            KStream printStream=    wordsCountTable.toStream();
 
-            printStream.foreach((word,count)-> System.out.println("Word "+word+" Count "+count));
+            KStream printStream=wordsCountTable.toStream();
+            // printStream.foreach((word,count)-> System.out.println("Word "+word+" Count "+count));
+            //recommend use print as it will use peek and not commit offsets
+            printStream.print(Printed.toSysOut());
 
          //7. Write the words counted to destination topic
         wordsCountTable.toStream().to(configurer.SinkTopic());
@@ -66,7 +70,7 @@ public class StreamsWordCountApp {
             kafkaStreams.close();
         }));
     }
-    public static void main1(String [] args)
+    public static void main(String [] args)
     {
         StreamsWordCountApp streamsWordCountApp=new StreamsWordCountApp();
 
