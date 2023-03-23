@@ -27,7 +27,7 @@ public class StreamingConsumerDemoApplication {
 		Topology topology=streamsBuilder.build();
 
 
-		KafkaStreams kstreams= new KafkaStreams(topology, Configure.ConfigureKafka());
+		KafkaStreams kstreams= new KafkaStreams(topology, Configure.ConfigureKafka("streaming-app-demo-1"));
 
 		kstreams.start();
 

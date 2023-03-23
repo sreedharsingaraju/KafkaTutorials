@@ -41,7 +41,6 @@ public class StreamsWordCountApp {
                 //6. Get count of such grouped key based messages
                 .count();
 
-
             KStream printStream=wordsCountTable.toStream();
             // printStream.foreach((word,count)-> System.out.println("Word "+word+" Count "+count));
             //recommend use print as it will use peek and not commit offsets
@@ -57,7 +56,8 @@ public class StreamsWordCountApp {
 
     public  void RunTopology(Topology wordsountTopology)
     {
-        KafkaStreams kafkaStreams=new KafkaStreams(wordsountTopology, Configure.ConfigureKafka());
+        KafkaStreams kafkaStreams=new KafkaStreams(wordsountTopology,
+                                        Configure.ConfigureKafka("word-count-1"));
 
         kafkaStreams.start();
 
