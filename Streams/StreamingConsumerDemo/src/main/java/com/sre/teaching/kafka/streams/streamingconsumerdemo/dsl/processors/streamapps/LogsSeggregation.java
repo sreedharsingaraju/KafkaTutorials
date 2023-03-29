@@ -1,17 +1,11 @@
-package com.sre.teaching.kafka.streams.streamingconsumerdemo;
+package com.sre.teaching.kafka.streams.streamingconsumerdemo.dsl.processors.streamapps;
 
 import com.sre.teaching.kafka.streams.streamingconsumerdemo.config.Configure;
-import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Branched;
-import org.apache.kafka.streams.kstream.BranchedKStream;
 import org.apache.kafka.streams.kstream.KStream;
-import org.apache.kafka.streams.kstream.KTable;
-
-import java.util.Arrays;
-import java.util.Map;
 
 //tbd: this is only giving the technical hints and to be used to complete full implementation
 //to handle log categories
