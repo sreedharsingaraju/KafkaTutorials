@@ -4,13 +4,12 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+
 
 import java.util.Properties;
 
 
-@Configuration
+
 public class Configure {
 
     String SOURCE_TOPICNAME="words-stream";
@@ -34,6 +33,8 @@ public class Configure {
         properties.put(StreamsConfig.APPLICATION_ID_CONFIG,appId);
         properties.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         properties.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+
+
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
         properties.put(StreamsConfig.CACHE_MAX_BYTES_BUFFERING_CONFIG,0);
         properties.put(StreamsConfig.COMMIT_INTERVAL_MS_CONFIG,0);
@@ -50,6 +51,7 @@ public class Configure {
 
         return properties;
     }
+
 
     public static  void RegisterShutDownHook(KafkaStreams kafkaStreams)
     {

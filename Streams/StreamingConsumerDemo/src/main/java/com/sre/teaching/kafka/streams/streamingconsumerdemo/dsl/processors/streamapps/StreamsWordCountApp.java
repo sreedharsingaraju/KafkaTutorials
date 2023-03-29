@@ -1,20 +1,16 @@
-package com.sre.teaching.kafka.streams.streamingconsumerdemo;
+package com.sre.teaching.kafka.streams.streamingconsumerdemo.dsl.processors.streamapps;
 
 import com.sre.teaching.kafka.streams.streamingconsumerdemo.config.Configure;
-import org.apache.kafka.common.protocol.types.ArrayOf;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
-import org.apache.kafka.streams.kstream.KGroupedStream;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Printed;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Arrays;
 
-@ComponentScan("com.sre.teaching.kafka.streams.streamingconsumerdemo")
+
 public class StreamsWordCountApp {
 
     Configure configurer=new Configure();

@@ -1,0 +1,4 @@
+test file connector
+testing the connector file surce
+standalone connector stream
+
