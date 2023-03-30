@@ -5,255 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6008c04b-7f14-4b54-b5cf-375d04e476a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_4_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_4_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_ws_rs_javax_ws_rs_api_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_12_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_2_4_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_kafka_connect_api_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_kafka_connect_json_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_kafka_kafka_clients_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_kafka_kafka_streams_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_19_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_19_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_23_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_lz4_lz4_java_1_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_4_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_rocksdb_rocksdbjni_5_7_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_2_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_2_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_snappy_snappy_java_1_1_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_33.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bankapp.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/src/main/java/com/sre/teaching/kafka/streams/bankapp/banktransactions/BankCustomerBalance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/src/main/java/com/sre/teaching/kafka/streams/bankapp/banktransactions/BankTransactionsApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/src/main/java/com/sre/teaching/kafka/streams/bankapp/banktransactions/interfacing/Configurer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/src/main/java/com/sre/teaching/kafka/streams/bankapp/banktransactions/interfacing/KafkaAPIWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banktransactions/src/test/java/com/sre/teaching/kafka/streams/bankapp/banktransactions/BankTransactionsApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/config/ProducerConfigurer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/stateful/Aggregate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/stateful/Joins.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/stateful/Reduce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/stateful/ReduceAnothervariant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/stateful/producers/JoinsProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/stateful/producers/ReduceProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/stateful/producers/interfacing/KafkaAPIWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/util/RunTopology.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../banktransactions.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_4_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__ch_qos_logback_logback_core_1_4_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_csv_2_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_scala_2_13_2_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_github_luben_zstd_jni_1_5_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_thoughtworks_paranamer_paranamer_2_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_typesafe_scala_logging_scala_logging_2_13_3_9_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__com_yammer_metrics_metrics_core_2_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__commons_cli_commons_cli_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_dropwizard_metrics_metrics_core_4_2_18.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_micrometer_micrometer_commons_1_10_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_micrometer_micrometer_observation_1_10_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_buffer_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_codec_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_common_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_handler_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_resolver_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_transport_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_transport_classes_epoll_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_90_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__io_projectreactor_reactor_core_3_5_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_4_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_12_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__net_jodah_typetools_0_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__net_minidev_accessors_smart_2_4_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__net_minidev_json_smart_2_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__net_sf_jopt_simple_jopt_simple_5_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__net_sourceforge_argparse4j_argparse4j_0_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_2_13_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_2_13_test_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_clients_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_clients_test_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_metadata_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_raft_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_server_common_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_storage_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_storage_api_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_streams_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_kafka_kafka_streams_test_utils_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_19_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_19_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_10_1_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_10_1_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_10_1_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_yetus_audience_annotations_0_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_6_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_jute_3_6_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_assertj_assertj_core_3_23_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_bitbucket_b_c_jose4j_0_7_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_8_0_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_5_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_7_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_7_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_7_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_7_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_junit_platform_junit_platform_launcher_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_lz4_lz4_java_1_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_mockito_mockito_core_4_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_ow2_asm_asm_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_rocksdb_rocksdbjni_7_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_scala_lang_modules_scala_collection_compat_2_13_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_scala_lang_modules_scala_java8_compat_2_13_1_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_scala_lang_scala_library_2_13_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_scala_lang_scala_reflect_2_13_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_2_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_slf4j_slf4j_api_2_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_function_context_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_function_core_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_stream_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_stream_binder_kafka_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_stream_binder_kafka_core_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_stream_test_binder_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_integration_spring_integration_core_6_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_integration_spring_integration_jmx_6_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_integration_spring_integration_kafka_6_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_kafka_spring_kafka_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_kafka_spring_kafka_test_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_retry_spring_retry_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_aop_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_beans_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_context_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_core_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_expression_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_jcl_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_messaging_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_test_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_tx_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_web_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_springframework_spring_webmvc_6_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_xerial_snappy_snappy_java_1_1_8_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/libraries/Maven__org_yaml_snakeyaml_1_33.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/src/main/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/MsstreamingconsumerdemoApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/src/main/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/Processor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/src/test/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/MsstreamingconsumerdemoApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../KafkaProducerApp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../KafkaProducerApp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StreamingConsumerDemo/StreamsConsumerLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/StreamsConsumerLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/FavouriteColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/streamapps/FavouriteColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/LogsSeggregation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/streamapps/LogsSeggregation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/StreamsWordCountApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/dsl/processors/streamapps/StreamsWordCountApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/config/Configure.java" beforeDir="false" afterPath="$PROJECT_DIR$/../StreamingConsumerDemo/src/main/java/com/sre/teaching/kafka/streams/streamingconsumerdemo/config/Configure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/src/main/java/admin/MSTopicsCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/src/main/java/producer/MSProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../KafkaConsumerApp/ConsumerLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../KafkaConsumerApp/ConsumerLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../KafkaProducerApp/src/main/java/com/example/kafkaproducer/KafkaProducerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../KafkaProducerApp/src/main/java/com/example/kafkaproducer/KafkaProducerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../KafkaProducerApp/testFile.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../KafkaProducerApp/testFile.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/src/main/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/MsstreamingconsumerdemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/src/main/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/MsstreamingconsumerdemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/src/main/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/src/main/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/Processor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingconsumerdemo/src/test/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/MsstreamingconsumerdemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../msstreamingconsumerdemo/msstreamingdemo/src/test/java/com/sre/teaching/kafka/streams/ms/streamconsumer/msstreamingconsumerdemo/MsstreamingconsumerdemoApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../understandingdsl/understandingdsl/understandingdsl.log" beforeDir="false" afterPath="$PROJECT_DIR$/../understandingdsl/understandingdsl/understandingdsl.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +58,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "E:/MyWork/trainings/Kafka/Code/KafkaTutorials/Streams/banktransactions/banktransactions/src/main/resources"
+    "last_opened_file_path": "E:/MyWork/trainings/Kafka/Code/KafkaTutorials/Streams/msstreamingconsumerdemo"
   }
 }]]></component>
   <component name="RecentsManager">

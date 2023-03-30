@@ -105,9 +105,6 @@ public class KafkaProducerApplication {
 			while (!isComplete.isDone()) {
 				sleep(1000);
 			}
-		isComplete.notify();
-
-
 		}
 		producer.Close();
 	}
