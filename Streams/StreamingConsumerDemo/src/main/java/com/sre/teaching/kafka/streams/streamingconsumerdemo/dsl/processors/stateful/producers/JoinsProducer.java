@@ -8,9 +8,9 @@ public class JoinsProducer {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
-        KafkaAPIWrapper leftStreamWriter = new KafkaAPIWrapper("joins-left-topic-in", false);
+        KafkaAPIWrapper leftStreamWriter = new KafkaAPIWrapper("joins-left-topic-in-1", false);
 
-        KafkaAPIWrapper rightStreamWriter = new KafkaAPIWrapper("joins-right-topic-in", false);
+        KafkaAPIWrapper rightStreamWriter = new KafkaAPIWrapper("joins-right-topic-in-1", false);
 
         leftStreamWriter.SendAsyncMessages("key", "leftval1");
 

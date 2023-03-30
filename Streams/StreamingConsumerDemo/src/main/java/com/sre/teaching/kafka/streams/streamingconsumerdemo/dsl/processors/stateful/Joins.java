@@ -11,11 +11,11 @@ import java.time.Duration;
 public class Joins {
 
 
-    public final String TOPIC_LEFT="joins-left-topic-in";
-    public final String TOPIC_RIGHT="joins-right-topic-in";
+    public final String TOPIC_LEFT="joins-left-topic-in-1";
+    public final String TOPIC_RIGHT="joins-right-topic-in-1";
 
-    public final String OUT_TOPIC="joins-topic-out";
-    public final String LEFT_JOIN_OUT="left-joins-topic-out";
+    public final String OUT_TOPIC="joins-topic-out-1"; //inner joim
+    public final String LEFT_JOIN_OUT="left-joins-topic-out-1"; //left join
 
     public Topology joinsDSLTopology()
     {
@@ -30,22 +30,33 @@ public class Joins {
 
         /* first specify how are left and right values should be treated if col key matches*/
         ValueJoiner<String, String, String> valueJoiner= (leftVal,rightVal)->{
-         return leftVal+"  joined  "+rightVal;
+                                                    return leftVal+"  joined  "+rightVal;
         };
 
         /* first specify how are left and right values should be treated if col key matches*/
         ValueJoiner<String, String, String> leftjoinValueJoiner= (leftVal,rightVal)->{
-            return "left only joined "+leftVal;
+            /*if(rightVal!=rightVal)
+                return leftVal+"  joined  "+rightVal;
+            else
+                return "left only joined "+leftVal;*/
+            return "Left val = "+leftVal + " : "+" rightval = "+ rightVal;
         };
-        //Now perform the join
-        leftStreamOfValues.join(rightStreamOfValues,valueJoiner,
-                JoinWindows.ofTimeDifferenceWithNoGrace(Duration.ofMinutes(2)))
-                .to(OUT_TOPIC);
 
-        leftStreamOfValues.leftJoin(rightStreamOfValues,leftjoinValueJoiner,
+
+        //Now perform the join
+        leftStreamOfValues.join(rightStreamOfValues,
+                           valueJoiner,
+                           JoinWindows.ofTimeDifferenceWithNoGrace(Duration.ofMinutes(2)))
+                            .peek((k,v)-> System.out.println("key "+k+" v="+v))
+                            .to(OUT_TOPIC);
+
+        leftStreamOfValues.leftJoin(
+                        rightStreamOfValues,
+                        leftjoinValueJoiner,
                         JoinWindows.ofTimeDifferenceWithNoGrace(Duration.ofMinutes(2)))
-                .peek((k,v)-> System.out.println("key "+k+" v="+v))
-                .to(LEFT_JOIN_OUT);
+                        .peek((k,v)-> System.out.println("key "+k+" v="+v))
+                        .to(LEFT_JOIN_OUT);
+
 
         Topology topology=streamsBuilder.build();
         return topology;

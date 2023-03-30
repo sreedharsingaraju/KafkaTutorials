@@ -1,0 +1,14 @@
+spring:
+  kafka:
+    streams:
+      application-id: "MSCloudStreams-App"
+      bootstrap-servers:
+        - localhost:9092
+        - localhost:9093
+
+    producer:
+      bootstrap-servers:
+        - localhost:9092
+        - localhost:9093
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
